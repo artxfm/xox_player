@@ -11,11 +11,13 @@ https://suragch.medium.com/steaming-audio-in-flutter-with-just-audio-7435fcf672b
 - WXOX logo
 - Get rid of the progress bar and just show the playing time and maybe
   a simple animation?
+- Look into how to replace the flutter spash screen with a WXOX logo.
+- Package names etc need to be sorted out so that we can publish this to app store 
+  properly - eg, we want this to appear as an update for existing users.
 
 
 
-
-## Getting Started
+## (Flutter) Getting Started
 
 This project is a starting point for a Flutter application.
 

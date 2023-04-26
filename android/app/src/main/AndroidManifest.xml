@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.xox_player">
+   <uses-permission android:name="android.permission.INTERNET" /> 
    <application
         android:label="xox_player"
         android:name="${applicationName}"

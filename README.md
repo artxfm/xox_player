@@ -1,6 +1,19 @@
 # xox_player
 
-A new Flutter project.
+
+Big thanks to 
+https://suragch.medium.com/steaming-audio-in-flutter-with-just-audio-7435fcf672bf
+
+
+## TODO
+
+- Probably need this background audio thingy: https://pub.dev/packages/audio_service
+- WXOX logo
+- Get rid of the progress bar and just show the playing time and maybe
+  a simple animation?
+
+
+
 
 ## Getting Started
 

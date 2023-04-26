@@ -1,5 +1,9 @@
 # xox_player
 
+Eventually this will be a cross platform app to simply play the WXOX radio stream.
+Ideally this will be easily customized/repurposed by other stations, and maintained by the 
+community so that nobody has to build one of these again.
+
 
 Big thanks to 
 https://suragch.medium.com/steaming-audio-in-flutter-with-just-audio-7435fcf672bf

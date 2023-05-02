@@ -11,11 +11,10 @@ https://suragch.medium.com/steaming-audio-in-flutter-with-just-audio-7435fcf672b
 
 ## TODO
 
+- Fix the "playing time" clock thing (progress bar has been removed).
 - Probably need this background audio thingy: https://pub.dev/packages/audio_service
-- WXOX logo
-- Get rid of the progress bar and just show the playing time and maybe
-  a simple animation?
 - Look into how to replace the flutter spash screen with a WXOX logo.
+- Icons
 - Package names etc need to be sorted out so that we can publish this to app store 
   properly - eg, we want this to appear as an update for existing users.
 

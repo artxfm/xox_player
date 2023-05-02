@@ -11,10 +11,10 @@ https://suragch.medium.com/steaming-audio-in-flutter-with-just-audio-7435fcf672b
 
 ## TODO
 
-- Fix the "playing time" clock thing (progress bar has been removed).
+- The playtime counter thing does not incremtn on iOS simulator. Why?
 - Probably need this background audio thingy: https://pub.dev/packages/audio_service
-- Look into how to replace the flutter spash screen with a WXOX logo.
-- Icons
+  Though that may be best left to version 2.
+- Need application icons.
 - Package names etc need to be sorted out so that we can publish this to app store 
   properly - eg, we want this to appear as an update for existing users.
 

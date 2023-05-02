@@ -6,8 +6,6 @@ class PageManager {
   final progressNotifier = ValueNotifier<ProgressBarState>(
     ProgressBarState(
       current: Duration.zero,
-      buffered: Duration.zero,
-      total: Duration.zero,
     ),
   );
   final buttonNotifier = ValueNotifier<ButtonState>(ButtonState.paused);
@@ -47,36 +45,9 @@ class PageManager {
       if (oldState.current.inSeconds < position.inSeconds) {
         progressNotifier.value = ProgressBarState(
           current: position,
-          buffered: oldState.buffered,
-          total: oldState.total,
         );
       }
     });
-
-    // Set callback for the buffer-position stream.
-    /*
-    _audioPlayer.bufferedPositionStream.listen((bufferedPosition) {
-      final oldState = progressNotifier.value;
-      progressNotifier.value = ProgressBarState(
-        current: oldState.current,
-        buffered: bufferedPosition,
-        total: oldState.total,
-      );
-    });
-    */
-
-    // Set callback for the duration stream.
-    /*
-    _audioPlayer.durationStream.listen((totalDuration) {
-      final oldState = progressNotifier.value;
-      progressNotifier.value = ProgressBarState(
-        current: oldState.current,
-        buffered: oldState.buffered,
-        total: totalDuration ?? Duration.zero,
-      );
-    });
-    */
-
   }
 
   void dispose() {
@@ -95,12 +66,8 @@ class PageManager {
 class ProgressBarState {
   ProgressBarState({
     required this.current,
-    required this.buffered,
-    required this.total,
   });
   final Duration current;
-  final Duration buffered;
-  final Duration total;
 }
 
 enum ButtonState {

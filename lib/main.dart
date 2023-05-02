@@ -47,8 +47,15 @@ class _MyAppState extends State<MyApp> {
               //       and then show the elapsed time here.
               ValueListenableBuilder<ProgressBarState>(
                 valueListenable: _pageManager.progressNotifier,
-                builder: (_, value, __) {
-                  return Text(value.current.toString());
+                builder: (context, value, __) {
+                  final current = value.current;
+                  final minutes = current.inMinutes.remainder(Duration.minutesPerHour).toString();
+                  final seconds = current.inSeconds.remainder(Duration.secondsPerMinute).toString().padLeft(2, '0');
+
+                  return Text(
+                    current.inHours > 0 ? '${current.inHours}:$minutes:$seconds' : '$minutes:$seconds',
+                    style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.0)
+                  );
                 },
               ),
 

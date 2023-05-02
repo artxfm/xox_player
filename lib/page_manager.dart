@@ -21,7 +21,8 @@ class PageManager {
   PageManager() {
     _init();
   }
-  
+
+
   void _init() async {
     _audioPlayer = AudioPlayer();
     await _audioPlayer.setUrl(url);
@@ -43,14 +44,17 @@ class PageManager {
     // Set callback for the position stream.
     _audioPlayer.positionStream.listen((position) {
       final oldState = progressNotifier.value;
-      progressNotifier.value = ProgressBarState(
-        current: position,
-        buffered: oldState.buffered,
-        total: oldState.total,
-      );
+      if (oldState.current.inSeconds < position.inSeconds) {
+        progressNotifier.value = ProgressBarState(
+          current: position,
+          buffered: oldState.buffered,
+          total: oldState.total,
+        );
+      }
     });
 
     // Set callback for the buffer-position stream.
+    /*
     _audioPlayer.bufferedPositionStream.listen((bufferedPosition) {
       final oldState = progressNotifier.value;
       progressNotifier.value = ProgressBarState(
@@ -59,8 +63,10 @@ class PageManager {
         total: oldState.total,
       );
     });
+    */
 
     // Set callback for the duration stream.
+    /*
     _audioPlayer.durationStream.listen((totalDuration) {
       final oldState = progressNotifier.value;
       progressNotifier.value = ProgressBarState(
@@ -69,6 +75,7 @@ class PageManager {
         total: totalDuration ?? Duration.zero,
       );
     });
+    */
 
   }
 

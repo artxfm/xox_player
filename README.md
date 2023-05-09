@@ -13,9 +13,18 @@ https://suragch.medium.com/steaming-audio-in-flutter-with-just-audio-7435fcf672b
 
 - Probably need this background audio thingy: https://pub.dev/packages/audio_service
   Though that may be best left to version 2.
-- Need application icons.
 - Package names etc need to be sorted out so that we can publish this to app store 
   properly - eg, we want this to appear as an update for existing users.
+
+
+## Icons
+
+Put a high res icon in assets/icon/icon.png and then run this to generate 
+icons for ios and android:
+
+```
+  flutter pub run flutter_launcher_icons
+```
 
 
 

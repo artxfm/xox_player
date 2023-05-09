@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'dart:developer' as developer;
+import 'dart:async';
+
 
 
 class PageManager {
@@ -15,9 +18,26 @@ class PageManager {
   static const url = 'https://patmos.cdnstream.com/proxy/artfmin1/?mp=/stream';
   
   late AudioPlayer _audioPlayer;
+  late Timer _timer;
+  DateTime _startTime = DateTime.now();
+
   
   PageManager() {
     _init();
+    Timer.periodic(const Duration(milliseconds: 500), (timer) {
+      _timer = timer;
+      if (_audioPlayer.playing) {
+        final elapsed = DateTime.now().difference(_startTime);
+        if (elapsed.inSeconds > 0) {
+          final oldState = progressNotifier.value;
+          if (oldState.current.inSeconds < elapsed.inSeconds) {
+            progressNotifier.value = ProgressBarState(
+              current: elapsed,
+            );
+          }
+        }
+      }
+    });
   }
 
 
@@ -39,22 +59,22 @@ class PageManager {
       }
     });
 
-    // Set callback for the position stream.
-    _audioPlayer.positionStream.listen((position) {
-      final oldState = progressNotifier.value;
-      if (oldState.current.inSeconds < position.inSeconds) {
-        progressNotifier.value = ProgressBarState(
-          current: position,
-        );
-      }
-    });
+    // TODO: I was monitoring the _audioPlayer.positionStream but on iOS
+    //       this was not trigger callbacks frequently enough to update the
+    //       timer.  
+
   }
 
   void dispose() {
+    _timer.cancel();
     _audioPlayer.dispose();
   }
 
   void play() {
+    _startTime = DateTime.now();
+    progressNotifier.value = ProgressBarState(
+      current: Duration.zero,
+    );
     _audioPlayer.play();
   }
 

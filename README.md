@@ -11,7 +11,6 @@ https://suragch.medium.com/steaming-audio-in-flutter-with-just-audio-7435fcf672b
 
 ## TODO
 
-- The playtime counter thing does not incremtn on iOS simulator. Why?
 - Probably need this background audio thingy: https://pub.dev/packages/audio_service
   Though that may be best left to version 2.
 - Need application icons.

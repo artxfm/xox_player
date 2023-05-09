@@ -34,8 +34,8 @@ class _MyAppState extends State<MyApp> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              const Text('here is some text'),
-
+              const Spacer(),
+              
               Image.asset(
                 "assets/images/xox_logo_sky_circle_sm.jpg"
               ),

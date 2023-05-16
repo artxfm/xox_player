@@ -2,7 +2,7 @@
     package="com.artxfm.xox_player">
    <uses-permission android:name="android.permission.INTERNET" /> 
    <application
-        android:label="xox_player"
+        android:label="WXOX Player"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

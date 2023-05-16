@@ -1,4 +1,4 @@
-package com.example.xox_player
+package com.artxfm.xox_player
 
 import io.flutter.embedding.android.FlutterActivity
 

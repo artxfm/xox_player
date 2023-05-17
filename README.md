@@ -1,8 +1,8 @@
 # xox_player
 
-Eventually this will be a cross platform app to simply play the WXOX radio stream.
-Ideally this will be easily customized/repurposed by other stations, and maintained by the 
-community so that nobody has to build one of these again.
+A cross platform app to simply play the WXOX radio stream. Ideally this will be
+easily customized/repurposed by other stations, and maintained by the community
+so that nobody has to build one of these from scratch again.
 
 
 Big thanks to 
@@ -13,7 +13,7 @@ https://suragch.medium.com/steaming-audio-in-flutter-with-just-audio-7435fcf672b
 
 ### need for next release
 
-- Add a button that sends user to the web site.
+- Add a button that sends user to the station web site.
 - Package names etc need to be sorted out so that we can publish this to app store 
   properly - eg, we want this to appear as an update for existing users.
   
@@ -34,7 +34,13 @@ https://suragch.medium.com/steaming-audio-in-flutter-with-just-audio-7435fcf672b
   Though that may be best left to version 2.
 
 
-## Icons
+## Development
+
+Contributions are welcome! Please feel free to branch and create a PR.
+Eventually bugs and TODOs will be in the github issues area.
+
+
+### Generating Icons
 
 Put a high res icon in assets/icon/icon.png and then run this to generate 
 icons for ios and android:
@@ -45,7 +51,7 @@ icons for ios and android:
 
 
 
-## (Flutter) Getting Started
+### (Flutter) Getting Started
 
 This project is a starting point for a Flutter application.
 

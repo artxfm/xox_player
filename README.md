@@ -11,10 +11,27 @@ https://suragch.medium.com/steaming-audio-in-flutter-with-just-audio-7435fcf672b
 
 ## TODO
 
-- Probably need this background audio thingy: https://pub.dev/packages/audio_service
-  Though that may be best left to version 2.
+### need for next release
+
+- Add a button that sends user to the web site.
 - Package names etc need to be sorted out so that we can publish this to app store 
   properly - eg, we want this to appear as an update for existing users.
+  
+### nice to have for future release
+
+- Need better graphics. For example (at least on android) the "white" of the
+  large logo does not quite match the white of the screen background. The icons
+  could be much better too. For example (again on android) the WXOX logo used as
+  the icon is a square with a circle, but really it should just be the circle
+  part filling the whole icon.
+  
+- Would be nice to show some show times and name info. For example, what is the
+  name of the current show and what is the name and start time of the next show.
+  This would require that the app is able to load schedule info from the site or
+  something like that.
+  
+- Probably need this background audio thingy: https://pub.dev/packages/audio_service
+  Though that may be best left to version 2.
 
 
 ## Icons

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import 'dart:developer' as developer;
+// import 'dart:developer' as developer;
 import 'dart:async';
+import 'package:url_launcher/url_launcher.dart';
 
 
 
@@ -16,6 +17,8 @@ class PageManager {
   // TODO: Maybe create a service to check a web page and/or local
   //       cache so we can easily alter this URL on the fly.
   static const url = 'https://patmos.cdnstream.com/proxy/artfmin1/?mp=/stream';
+
+  static final _site = Uri.parse("https://artxfm.com");
   
   late AudioPlayer _audioPlayer;
   late Timer _timer;
@@ -81,6 +84,12 @@ class PageManager {
   void pause() {
     _audioPlayer.pause();
   }    
+
+  void openURL() async {
+    if (!await launchUrl(_site)) {
+      throw Exception('XOX could not launch URL $_site');
+    }
+  }
 }
 
 class ProgressBarState {

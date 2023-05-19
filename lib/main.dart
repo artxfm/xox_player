@@ -40,11 +40,13 @@ class _MyAppState extends State<MyApp> {
                 "assets/images/xox_logo_sky_circle_sm.jpg"
               ),
 
+              ElevatedButton(
+                onPressed: _pageManager.openURL,
+                child: const Text("Visit ARTxFM.com"),
+              ),
+
               const Spacer(),
 
-              // TODO: This is left over from the progress bar.
-              //       All we really need to do is track when the user pressed PLAY
-              //       and then show the elapsed time here.
               ValueListenableBuilder<ProgressBarState>(
                 valueListenable: _pageManager.progressNotifier,
                 builder: (context, value, __) {

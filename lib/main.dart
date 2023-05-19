@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'page_manager.dart';
 
+import 'station.dart' as station;
+
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
@@ -42,7 +45,7 @@ class _MyAppState extends State<MyApp> {
 
               ElevatedButton(
                 onPressed: _pageManager.openURL,
-                child: const Text("Visit ARTxFM.com"),
+                child: const Text("Visit ${station.stationNameUI}"),
               ),
 
               const Spacer(),

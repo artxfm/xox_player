@@ -4,6 +4,8 @@ import 'package:just_audio/just_audio.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'station.dart' as station;
+
 
 
 class PageManager {
@@ -14,11 +16,7 @@ class PageManager {
   );
   final buttonNotifier = ValueNotifier<ButtonState>(ButtonState.paused);
 
-  // TODO: Maybe create a service to check a web page and/or local
-  //       cache so we can easily alter this URL on the fly.
-  static const url = 'https://patmos.cdnstream.com/proxy/artfmin1/?mp=/stream';
-
-  static final _site = Uri.parse("https://artxfm.com");
+  static final _site = Uri.parse(station.stationURL);
   
   late AudioPlayer _audioPlayer;
   late Timer _timer;
@@ -46,7 +44,7 @@ class PageManager {
 
   void _init() async {
     _audioPlayer = AudioPlayer();
-    await _audioPlayer.setUrl(url);
+    await _audioPlayer.setUrl(station.streamURL);
 
     // Set up a callback for the state of the stream (and update button view).
     _audioPlayer.playerStateStream.listen((playerState) {

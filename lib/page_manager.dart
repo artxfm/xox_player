@@ -84,7 +84,7 @@ class PageManager {
   }    
 
   void openURL() async {
-    if (!await launchUrl(_site)) {
+    if (!await launchUrl(_site, mode: LaunchMode.externalApplication)) {
       throw Exception('XOX could not launch URL $_site');
     }
   }

@@ -13,9 +13,12 @@ https://suragch.medium.com/steaming-audio-in-flutter-with-just-audio-7435fcf672b
 
 ### need for next release
 
-- Add a button that sends user to the station web site.
-- Package names etc need to be sorted out so that we can publish this to app store 
-  properly - eg, we want this to appear as an update for existing users.
+- Need the audio to keep playing when phone goes into idle mode, etc. Probably
+  need this background audio thingy: https://pub.dev/packages/audio_service
+- Dark theme. Can we make the background dark? So text and buttons need to be
+  light. May need a new main icon (since the one we have now has a white
+  background).
+
   
 ### nice to have for future release
 
@@ -30,8 +33,6 @@ https://suragch.medium.com/steaming-audio-in-flutter-with-just-audio-7435fcf672b
   This would require that the app is able to load schedule info from the site or
   something like that.
   
-- Probably need this background audio thingy: https://pub.dev/packages/audio_service
-  Though that may be best left to version 2.
 
 
 ## Development

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'page_manager.dart';
-
+import 'services/service_locator.dart';
 import 'station.dart' as station;
 
 
-void main() => runApp(const MyApp());
+void main() async {
+  await setupServiceLocator();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);

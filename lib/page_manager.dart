@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:just_audio/just_audio.dart';
 // import 'dart:developer' as developer;
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:xox_player/services/audio_handler.dart';
 import 'station.dart' as station;
+import 'package:audio_service/audio_service.dart';
+import 'services/service_locator.dart';
 
 
 
@@ -14,11 +15,13 @@ class PageManager {
       current: Duration.zero,
     ),
   );
+
   final buttonNotifier = ValueNotifier<ButtonState>(ButtonState.paused);
+  final _audioHandler = getIt<AudioHandler>(); 
 
   static final _site = Uri.parse(station.stationURL);
   
-  late AudioPlayer _audioPlayer;
+  // late AudioPlayer _audioPlayer;
   late Timer _timer;
   DateTime _startTime = DateTime.now();
 
@@ -27,7 +30,10 @@ class PageManager {
     _init();
     Timer.periodic(const Duration(milliseconds: 500), (timer) {
       _timer = timer;
-      if (_audioPlayer.playing) {
+      
+      final myHandler = _audioHandler as MyAudioHandler;
+
+      if (myHandler.isPlaying()) {
         final elapsed = DateTime.now().difference(_startTime);
         if (elapsed.inSeconds > 0) {
           final oldState = progressNotifier.value;
@@ -43,32 +49,26 @@ class PageManager {
 
 
   void _init() async {
-    _audioPlayer = AudioPlayer();
-    await _audioPlayer.setUrl(station.streamURL);
 
     // Set up a callback for the state of the stream (and update button view).
-    _audioPlayer.playerStateStream.listen((playerState) {
-      final isPlaying = playerState.playing;
-      final processingState = playerState.processingState;
-      if (processingState == ProcessingState.loading ||
-          processingState == ProcessingState.buffering) {
+    _audioHandler.playbackState.listen((playbackState) {
+      final isPlaying = playbackState.playing;
+      final processingState = playbackState.processingState;
+      if (processingState == AudioProcessingState.loading ||
+          processingState == AudioProcessingState.buffering) {
         buttonNotifier.value = ButtonState.loading;
       } else if (!isPlaying) {
         buttonNotifier.value = ButtonState.paused;
-      } else {
+      }  else {
         buttonNotifier.value = ButtonState.playing;
       }
     });
-
-    // TODO: I was monitoring the _audioPlayer.positionStream but on iOS
-    //       this was not trigger callbacks frequently enough to update the
-    //       timer.  
 
   }
 
   void dispose() {
     _timer.cancel();
-    _audioPlayer.dispose();
+    _audioHandler.stop();
   }
 
   void play() {
@@ -76,11 +76,11 @@ class PageManager {
     progressNotifier.value = ProgressBarState(
       current: Duration.zero,
     );
-    _audioPlayer.play();
+    _audioHandler.play();
   }
 
   void pause() {
-    _audioPlayer.pause();
+    _audioHandler.pause();
   }    
 
   void openURL() async {

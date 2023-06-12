@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'page_manager.dart';
-
+import 'services/service_locator.dart';
 import 'station.dart' as station;
 
 
-void main() => runApp(const MyApp());
+void main() async {
+  await setupServiceLocator();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -31,7 +34,14 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
+      // theme: ThemeData.dark(),
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: Colors.black,
+        primaryColor: Colors.blueGrey,
+      ),
       home: Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(20.0),

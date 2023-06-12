@@ -8,3 +8,5 @@ const stationURL = 'https://artxfm.com';
 
 // This is the text shown on the visit button, eg "Visit {stationNameUI}"
 const stationNameUI = 'ARTxFM.com';
+
+const stationCallSign = 'WXOX';

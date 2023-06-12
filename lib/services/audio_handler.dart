@@ -25,8 +25,18 @@ class MyAudioHandler extends BaseAudioHandler {
     _notifyAudioHandlerAboutPlaybackEvents();
   }
 
+  
+
   void _init() async {
-    await _audioPlayer.setUrl(station.streamURL);
+    await _audioPlayer.setUrl(station.streamURL); 
+
+    // set metadata details about the stream for the little notification widget.
+    mediaItem.add(const MediaItem(
+      id: station.streamURL,
+      title: station.stationNameUI,
+      displayTitle: station.stationCallSign,
+      displaySubtitle: station.stationNameUI, 
+    ));
   }
 
   bool isPlaying() {

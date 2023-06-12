@@ -11,16 +11,13 @@ https://suragch.medium.com/steaming-audio-in-flutter-with-just-audio-7435fcf672b
 
 ## TODO
 
-### need for next release
 
-- Need the audio to keep playing when phone goes into idle mode, etc. Probably
-  need this background audio thingy: https://pub.dev/packages/audio_service
-- Dark theme. Can we make the background dark? So text and buttons need to be
-  light. May need a new main icon (since the one we have now has a white
-  background).
-
-  
 ### nice to have for future release
+
+- Can the main logo spin while we are playing?
+
+- May need a new main icon (since the one we have now has a white
+  background).
 
 - Need better graphics. For example (at least on android) the "white" of the
   large logo does not quite match the white of the screen background. The icons

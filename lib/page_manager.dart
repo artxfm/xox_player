@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:just_audio/just_audio.dart';
 // import 'dart:developer' as developer;
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
@@ -69,7 +68,7 @@ class PageManager {
 
   void dispose() {
     _timer.cancel();
-    _audioHandler.customAction('dispose');
+    _audioHandler.stop();
   }
 
   void play() {

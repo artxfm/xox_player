@@ -39,6 +39,11 @@ class MyAudioHandler extends BaseAudioHandler {
   @override
   Future<void> pause() => _audioPlayer.pause();  
 
+  @override
+  Future<void> stop() async {
+    await _audioPlayer.dispose();
+    return super.stop();
+  }
 
   // Sets things up so that state changes from our audio player are
   // broadcast to the audio handler listeners (like our page manager).

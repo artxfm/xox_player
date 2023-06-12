@@ -34,7 +34,14 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
+      // theme: ThemeData.dark(),
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: Colors.black,
+        primaryColor: Colors.blueGrey,
+      ),
       home: Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(20.0),

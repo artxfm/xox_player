@@ -11,31 +11,12 @@ https://suragch.medium.com/steaming-audio-in-flutter-with-just-audio-7435fcf672b
 
 ## TODO
 
-
-### nice to have for future release
-
-- Can the main logo spin while we are playing?
-
-- May need a new main icon (since the one we have now has a white
-  background).
-
-- Need better graphics. For example (at least on android) the "white" of the
-  large logo does not quite match the white of the screen background. The icons
-  could be much better too. For example (again on android) the WXOX logo used as
-  the icon is a square with a circle, but really it should just be the circle
-  part filling the whole icon.
-  
-- Would be nice to show some show times and name info. For example, what is the
-  name of the current show and what is the name and start time of the next show.
-  This would require that the app is able to load schedule info from the site or
-  something like that.
-  
+See the github issues database for issues tagged with "enhancement".
 
 
 ## Development
 
 Contributions are welcome! Please feel free to branch and create a PR.
-Eventually bugs and TODOs will be in the github issues area.
 
 
 ### Generating Icons

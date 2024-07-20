@@ -34,6 +34,7 @@ if (keystorePropertiesFile.exists()) {
 
 
 android {
+    namespace 'com.artxfm.xox_player'
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 

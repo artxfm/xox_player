@@ -37,6 +37,7 @@ class _MyAppState extends State<MyApp> {
 
     return MaterialApp(
       // theme: ThemeData.dark(),
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,
         scaffoldBackgroundColor: Colors.black,

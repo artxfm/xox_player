@@ -10,25 +10,41 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
-  _MyAppState createState() => _MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   late final PageManager _pageManager;
+  late final AnimationController _rotationController;
   static const _playPauseIconSize = 196.0;
 
   @override
   void initState() {
     super.initState();
-    _pageManager = PageManager(); // init PageManager
+    _pageManager = PageManager();
+    _rotationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 8),
+    );
+    _pageManager.buttonNotifier.addListener(_onButtonStateChanged);
+  }
+
+  void _onButtonStateChanged() {
+    if (_pageManager.buttonNotifier.value == ButtonState.playing) {
+      _rotationController.repeat();
+    } else {
+      _rotationController.stop();
+    }
   }
 
   @override
   void dispose() {
-    _pageManager.dispose(); // clean up
+    _pageManager.buttonNotifier.removeListener(_onButtonStateChanged);
+    _rotationController.dispose();
+    _pageManager.dispose();
     super.dispose();
   }
 
@@ -50,8 +66,11 @@ class _MyAppState extends State<MyApp> {
             children: [
               const Spacer(),
               
-              Image.asset(
-                "assets/images/xox_logo_sky_circle_sm.jpg"
+              RotationTransition(
+                turns: _rotationController,
+                child: Image.asset(
+                  "assets/images/xox_logo_sky_circle_sm.jpg",
+                ),
               ),
 
               ElevatedButton(

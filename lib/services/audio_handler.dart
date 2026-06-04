@@ -10,8 +10,8 @@ Future<AudioHandler> initAudioService() async {
     config: const AudioServiceConfig(
       androidNotificationChannelId: 'com.artxfm.xox_player.audio',
       androidNotificationChannelName: 'WXOX Player Audio',
-      androidNotificationOngoing: true,
-      androidStopForegroundOnPause: true,
+      androidNotificationOngoing: false,
+      androidStopForegroundOnPause: false,
       // TODO: We could set an androidNotificationIcon here too.
     ),
   );
